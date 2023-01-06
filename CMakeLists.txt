@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.10.0)
 set(MODULE_NAME "mpfr")
 project(${MODULE_NAME})
 
-option(MPIR_INCLUDE "The path to MPIR's include directory " "/opt/mpir/include")
+option(LIBRAPID_MPIR_INCLUDE "The path to MPIR's include directory " "/opt/mpir/include")
+option(LIBRAPID_MPIR_LIBRARY "The path to MPIR's library directory " "/opt/mpir/include")
 
 set(PROJECT_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/mpfr/src/abort_prec_max.c"
@@ -270,7 +271,8 @@ add_library(${MODULE_NAME} STATIC ${PROJECT_SOURCES})
 target_include_directories(${MODULE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/mpfr)
 target_include_directories(${MODULE_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/mpfr/src)
 target_include_directories(${MODULE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/mpfr/build.vs22)
-target_include_directories(${MODULE_NAME} PUBLIC ${MPIR_INCLUDE})
+target_include_directories(${MODULE_NAME} PUBLIC ${LIBRAPID_MPIR_INCLUDE})
+target_link_libraries(${MODULE_NAME} STATIC ${LIBRAPID_MPIR_LIBRARY}/mpir.lib)
 
 target_compile_definitions(${MODULE_NAME} PRIVATE
     "HAVE_STDARG"
