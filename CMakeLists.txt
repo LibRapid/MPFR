@@ -272,7 +272,7 @@ target_include_directories(${MODULE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/mp
 target_include_directories(${MODULE_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/mpfr/src)
 target_include_directories(${MODULE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/mpfr/build.vs22)
 target_include_directories(${MODULE_NAME} PUBLIC ${LIBRAPID_MPIR_INCLUDE})
-target_link_libraries(${MODULE_NAME} STATIC ${LIBRAPID_MPIR_LIBRARY}/mpir.lib)
+target_link_libraries(${MODULE_NAME} STATIC ${LIBRAPID_MPIR_LIBRARY}/mpir)
 
 target_compile_definitions(${MODULE_NAME} PRIVATE
     "HAVE_STDARG"
