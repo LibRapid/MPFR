@@ -44,41 +44,10 @@ http://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 
 #if defined( LIBRAPID_64BIT )
 
-#  if 0
-#    include "../src/x86_64/pentium4/mparam.h"
-#    define MPFR_TUNE_CASE "src/x86_64/pentium4/mparam.h"
-#  elif 0
-#    include "../src/x86_64/core2/mparam.h"
-#    define MPFR_TUNE_CASE "src/x86_64/core2/mparam.h"
-#  elif 1
-#    include "../src/x86_64/mparam.h"
-#    define MPFR_TUNE_CASE "src/x86_64/mparam.h"
-#  elif 0
-#    include "../src/amd/mparam.h"
-#    define MPFR_TUNE_CASE "src/amd/mparam.h"
-#  elif 0
-#    include "../src/amdmparam.h"
-#    define MPFR_TUNE_CASE "src/amdmparam.h"
-#  elif 0
-#    include "../src/amd/mparam.h"
-#    define MPFR_TUNE_CASE "src/amd/mparam.h"
-#  else
-#  endif
-
-#elif defined( LIBRAPID_32BIT )
-
-#  if 0
-#    include "../src/x86/core2/mparam.h"
-#    define MPFR_TUNE_CASE "src/x86/core2/mparam.h"
-#  elif 1
-#    include "../src/x86/mparam.h"
-#    define MPFR_TUNE_CASE "src/x86/mparam.h"
-#  else
-#  endif
-
-#else
-#  define MPFR_TUNE_CASE "default"
-#endif
+// We shouldn't always use this one, but it works...
+// if you really need the best performance, install MPFR yourself >:)
+include "../src/x86_64/mparam.h"
+define MPFR_TUNE_CASE "src/x86_64/mparam.h"
 
 /****************************************************************
  * Default values of Threshold.                                 *
