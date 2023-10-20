@@ -44,8 +44,8 @@ http://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 
 // We shouldn't always use this one, but it works...
 // if you really need the best performance, install MPFR yourself >:)
-include "../src/x86_64/mparam.h"
-define MPFR_TUNE_CASE "src/x86_64/mparam.h"
+#include "../src/x86_64/mparam.h"
+#define MPFR_TUNE_CASE "src/x86_64/mparam.h"
 
 /****************************************************************
  * Default values of Threshold.                                 *
